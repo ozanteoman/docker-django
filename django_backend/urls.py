@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from albums.views import index
+from album.views import index
 
 urlpatterns = [
     path('index', view=index),
