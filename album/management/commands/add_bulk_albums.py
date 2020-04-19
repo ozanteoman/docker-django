@@ -1,11 +1,11 @@
 from django.core.management.base import BaseCommand
 from django.utils.crypto import get_random_string
 
-from albums.models import Album
+from album.models import Album
 
 
 class Command(BaseCommand):
-    help = "add bulk albums"
+    help = "add bulk album"
 
     def _create_albums(self, *args, **options):
         count = options.get("count") or 10
