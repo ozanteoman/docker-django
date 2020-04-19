@@ -10,7 +10,7 @@ class Artist(models.Model):
 
 
 class Album(models.Model):
-    artist = models.ForeignKey(to=Artist, on_delete=models.CASCADE, related_name="album")
+    artist = models.ForeignKey(to=Artist, on_delete=models.CASCADE, related_name="album", null=False)
 
     title = models.CharField(max_length=50)
     description = models.TextField(null=True)
