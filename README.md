@@ -1,2 +1,2 @@
 # docker-django
-To do some exercise with new learned method and technology
+Added examples related of select_related to understand the select_related
