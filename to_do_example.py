@@ -108,3 +108,13 @@ class UsingSelectRelated(object):
 
         _example_five_without_select_realated()
         _example_five_with_select_realated()
+
+    def example_six(self):
+        self._starting_count_of_queries()
+        # using of select_related without keyword
+        songs = Song.objects.select_related().all()
+        print(songs)
+        # prevent needless using of select_related
+        songs_without_select_related = songs.select_related(None)
+        print(songs_without_select_related)
+        print(self._fetched_count_of_queries())
