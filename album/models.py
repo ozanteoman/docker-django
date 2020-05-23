@@ -11,6 +11,7 @@ class Artist(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=25)
+    is_visible = models.BooleanField(default=True)
 
     def __str__(self):
         return self.name
