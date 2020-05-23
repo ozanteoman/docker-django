@@ -9,9 +9,16 @@ class Artist(models.Model):
         return f"{self.first_name} {self.last_name}"
 
 
+class Category(models.Model):
+    name = models.CharField(max_length=25)
+
+    def __str__(self):
+        return self.name
+
+
 class Album(models.Model):
     artist = models.ForeignKey(to=Artist, on_delete=models.CASCADE, related_name="album", null=False)
-
+    category = models.ManyToManyField(to=Category)
     title = models.CharField(max_length=50)
     description = models.TextField(null=True)
     cover_image = models.URLField(null=True, max_length=255)
@@ -20,14 +27,7 @@ class Album(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"{self.artist} - {self.title}"
-
-
-class Category(models.Model):
-    name = models.CharField(max_length=25)
-
-    def __str__(self):
-        return self.name
+        return f"{self.title}"
 
 
 class Song(models.Model):
@@ -38,4 +38,4 @@ class Song(models.Model):
     sound_file = models.FileField(null=True)
 
     def __str__(self):
-        return f"{self.album} - {self.name} - {self.category.all()}"
+        return f"{self.name} - {self.category.all()}"
