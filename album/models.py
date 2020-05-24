@@ -24,6 +24,8 @@ class Album(models.Model):
     description = models.TextField(null=True)
     cover_image = models.URLField(null=True, max_length=255)
 
+    is_visible = models.BooleanField(default=True)
+
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
